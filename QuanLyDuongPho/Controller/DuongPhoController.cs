@@ -56,7 +56,7 @@ namespace QuanLyDuongPho.Controller
             var moTa = Console.ReadLine();
             dp.MoTa = moTa;
             Console.WriteLine("Nhập ngày sử dụng đường cần sửa: ");
-            var ngaySuDung = Convert.ToDateTime(Console.ReadLine());
+            var ngaySuDung = DateTime.Parse(Console.ReadLine());
             dp.NgaySuDung = ngaySuDung;
             Console.WriteLine("Nhập lịch sử đường cần sửa: ");
             var lichSu = Console.ReadLine();

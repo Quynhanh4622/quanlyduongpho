@@ -16,7 +16,7 @@ namespace QuanLyDuongPho.Helper
             {
                 string connectionString;
                 connectionString = "SERVER=" + _server + ";" + "DATABASE=" + 
-                                   _database + ";" + "UID=" + _uid + ";" + "PASSWORD=" + _password + ";";
+                                   _database + ";" + "UID=" + _uid + ";" + "PASSWORD=" + _password + ";" + "convert zero datetime=True";
                 _connection = new MySqlConnection(connectionString);
             }
             return _connection;

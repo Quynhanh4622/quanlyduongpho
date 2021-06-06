@@ -35,11 +35,11 @@ namespace QuanLyDuongPho.Model
             {
                 var ma = mySqlDataReader.GetString("Ma");
                 var ten = mySqlDataReader.GetString("Ten");
-                var moTa = mySqlDataReader.GetString("Mo ta");
-                var ngaySuDung = mySqlDataReader.GetDateTime("Ngay su dung");
-                var lichSu = mySqlDataReader.GetString("Lich su");
-                var tenQuan = mySqlDataReader.GetString("Ten quan");
-                var trangThai = mySqlDataReader.GetInt32(1);
+                var moTa = mySqlDataReader.GetString("MoTa");
+                var ngaySuDung = mySqlDataReader.GetDateTime("NgaySuDung");
+                var lichSu = mySqlDataReader.GetString("LichSu");
+                var tenQuan = mySqlDataReader.GetString("TenQuan");
+                var trangThai = mySqlDataReader.GetInt32("TrangThai");
                 DuongPho duongPho = new DuongPho();
                 duongPho.Ma = ma;
                 duongPho.Ten = ten;
@@ -58,6 +58,7 @@ namespace QuanLyDuongPho.Model
         {
             DuongPho duongPho = null;
             var connection = ConnectionHelper.GetConnection();
+            connection.Open();
             MySqlCommand mySqlCommand = connection.CreateCommand();
             mySqlCommand.CommandText = $"select * from duongphos where Ma = '{id}'";
             MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
@@ -65,11 +66,11 @@ namespace QuanLyDuongPho.Model
             {
                 var ma = mySqlDataReader.GetString("Ma");
                 var ten = mySqlDataReader.GetString("Ten");
-                var moTa = mySqlDataReader.GetString("Mo ta");
-                var ngaySuDung = mySqlDataReader.GetDateTime("Ngay su dung");
-                var lichSu = mySqlDataReader.GetString("Lich su");
-                var tenQuan = mySqlDataReader.GetString("Ten quan");
-                var trangThai = mySqlDataReader.GetInt32(1);
+                var moTa = mySqlDataReader.GetString("MoTa");
+                var ngaySuDung = mySqlDataReader.GetDateTime("NgaySuDung");
+                var lichSu = mySqlDataReader.GetString("LichSu");
+                var tenQuan = mySqlDataReader.GetString("TenQuan");
+                var trangThai = mySqlDataReader.GetInt32("TrangThai");
                 duongPho = new DuongPho();
                 duongPho.Ma = ma;
                 duongPho.Ten = ten;
@@ -98,7 +99,7 @@ namespace QuanLyDuongPho.Model
             duongPho.TrangThai = updateDuongPho.TrangThai;
             var connection = ConnectionHelper.GetConnection();
             MySqlCommand mySqlCommand = connection.CreateCommand();
-            mySqlCommand.CommandText = $"update duongphos set Ten = '{duongPho.Ten}', Mo ta = '{duongPho.MoTa}', Ngay su dung = '{duongPho.NgaySuDung}', Lich su = '{duongPho.LichSu}', Ten quan = '{duongPho.TenQuan}', Trang thai = {duongPho.TrangThai} ";
+            mySqlCommand.CommandText = $"update duongphos set Ten = '{duongPho.Ten}', MoTa = '{duongPho.MoTa}', NgaySuDung = '{duongPho.NgaySuDung}', LichSu = '{duongPho.LichSu}', TenQuan = '{duongPho.TenQuan}', TrangThai = {duongPho.TrangThai} ";
             var result = mySqlCommand.ExecuteNonQuery();
             if (result == 1)
             {
